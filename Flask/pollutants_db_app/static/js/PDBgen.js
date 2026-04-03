@@ -5,7 +5,7 @@ $(document).ready(function(){
     var symbol = document.getElementById('3dmolviewer_UNIQUEID').getAttribute('value');
 
     // check if exists
-    if (symbol != 0) {
+    if (symbol != "NULL") {
     
       // create pdb view
       viewer_UNIQUEID = $3Dmol.createViewer($("#3dmolviewer_UNIQUEID"), {backgroundColor:"white"});
@@ -20,13 +20,10 @@ $(document).ready(function(){
       })
     } else {
 
-      // get uniprotkb for alphafold
-      var uniprotkb = document.getElementById('uniprotkb').innerHTML;
-
-      // display alphafold
+      // display alphafold block
       document.getElementById('alphafold').style.display = "block";
-      // set download attributes
-      document.getElementById('pdb_download').innerHTML = "Predicted PDB"
-      document.getElementById('pdb_download').setAttribute('href' ,'https://alphafold.ebi.ac.uk/files/AF-'+uniprotkb+'-F1-model_v4.pdb')
+      // hide download attributes
+      document.getElementById('download_header').style.display = "none";
+      document.getElementById('pdb_download').style.display = "none";
     }
   });

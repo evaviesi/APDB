@@ -13,7 +13,7 @@ $(document).ready(function(){
     // check if id option is in array 
     if (found == true) {
       // create a url location with selected id option
-      window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-molecules?id_option=${SelectedOption}`);
+      window.location.assign(`/apdb/home/browse-molecules?id_option=${SelectedOption}`);
     } else {
       // clear input text 
       $('#mol_id_option').val("");
@@ -36,7 +36,7 @@ $(document).ready(function(){
     // check if id option is in array
     if (found == true) {
       // create a url location with selected id option
-      window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-bioassays?id_option=${SelectedOption}`);
+      window.location.assign(`/apdb/home/browse-bioassays?id_option=${SelectedOption}`);
     } else {
       // clear input text 
       $('#bio_id_option').val("");
@@ -62,7 +62,7 @@ $(document).ready(function(){
         if (found == true) {
           var threshold = 0.95;
           // create a url location with input id and threshold
-          window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${SearchTerm}&similarity_thr=${threshold}`);
+          window.location.assign(`/apdb/home/browse-similarities/panel?molecule_id=${SearchTerm}&similarity_thr=${threshold}`);
         } else {
           // display alert message 
           e.preventDefault();

@@ -64,7 +64,7 @@
 
                         <div id="alphafold" style="display: none">
                             No structure available in the PDB.<br><br><dt>AlphaFold structure prediction:</dt>
-                            <a href='https://www.alphafold.ebi.ac.uk/entry/{{ targets[0][6] }}' target="_blank">www.alphafold.ebi.ac.uk/entry/{{ targets[0][6] }}</a>
+                            <a href='https://www.alphafold.ebi.ac.uk/search/text/{{ targets[0][5] }}' target="_blank">www.alphafold.ebi.ac.uk/search/text/{{ targets[0][5] }}</a>
                         </div>
 
                     </div> <!-- col-sm-8 col-md-6 col-lg-4 -->
@@ -87,7 +87,7 @@
                             </dd>
                             
                             <dd>
-                                <dt><strong>Download</strong></dt>
+                                <dt id="download_header"><strong>Download</strong></dt>
                                 <a id="pdb_download" class="download">
                                     <strong><span class="glyphicon glyphicon-download-alt">PDB</span></strong>
                                 </a>

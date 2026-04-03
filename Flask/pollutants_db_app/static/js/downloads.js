@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('button#descriptor_download').on('click', function(e) {
         var name = $(this).attr("name");
         // create a url location with selected descriptor
-        window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-descriptors/download?descriptor=${name}`);
+        window.location.assign(`/apdb/home/browse-descriptors/download?descriptor=${name}`);
 
          // display info message
          $('.info-message').find('p').text('Please wait...');
@@ -23,7 +23,7 @@ $(document).ready(function(){
     $('button#model_download').on('click', function(e) {
         var name = $(this).attr("name");
         // create a url location with selected model
-        window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/download?model=${name}`);
+        window.location.assign(`/apdb/home/browse-similarities/download?model=${name}`);
 
         // display info message
         $('.info-message').find('p').text('Model downloaded!');
@@ -43,7 +43,7 @@ $(document).ready(function(){
     $('button#db_download').on('click', function(e) {
         var name = $(this).attr("name");
         // create a url location with selected format
-        window.location.replace(`http://` + window.location.hostname + `/apdb/downloads-contacts/db?format=${name}`);
+        window.location.assign(`/apdb/downloads-contacts/db?format=${name}`);
 
         // display info message
         $('.info-message').find('p').text('Database downloaded!');

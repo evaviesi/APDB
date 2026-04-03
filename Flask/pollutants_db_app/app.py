@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, send_file, send_from_directory, make_response
 import io
-import os, zipfile
+import os, shutil
 from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
@@ -41,9 +41,8 @@ def get_db_connection():
 @app.route("/") 
 
 def index():
-   return redirect("http://apdb.di.univr.it/apdb/home", code=302)
-
-
+  return redirect("/apdb/home", code=302)
+  # return redirect("http://apdb.di.univr.it/apdb/home", code=302)
 
 
 # define home 
@@ -433,14 +432,6 @@ def target_browse():
 
       # return associated pdb with finest resolution
       pdb = targets[0][7]
-      # return pdb structures associated to the uniprotkb
-      found_pdbs = Query(target_uniprotkb).search()
-
-      # check if None
-      if (found_pdbs != None and pdb in found_pdbs):
-        pdb = pdb  
-      else:
-        pdb = 0
 
       # close connection 
       cur.close()
@@ -631,6 +622,13 @@ def similarity_panel_browse():
     # draw structure from smiles 
     smiles = molecule[4]
     mol = Chem.MolFromSmiles(smiles)
+    folder_path = os.path.join(os.getcwd(), "pollutants_db_app/static/tmp_img")
+    if os.path.exists(folder_path) and os.path.isdir(folder_path):
+      # remove folder and files
+      shutil.rmtree(folder_path)
+    # create folder  
+    os.makedirs(folder_path, exist_ok=True)
+    # save image
     Draw.MolToFile(mol, os.getcwd() + "/pollutants_db_app/static/tmp_img/mol.png")
     
     # check if single atom 

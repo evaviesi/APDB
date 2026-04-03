@@ -54,9 +54,9 @@ $(document).ready(function() {
 
     if(atom.length == 1) {
       // create a url location with filtered element 
-      window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-molecules/filter?element=${atom.toUpperCase()}`);
+      window.location.assign(`/apdb/home/browse-molecules/filter?element=${atom.toUpperCase()}`);
     } else {
-      window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-molecules/filter?element=${atom}`);
+      window.location.assign(`/apdb/home/browse-molecules/filter?element=${atom}`);
     }
  });
 });
@@ -64,24 +64,11 @@ $(document).ready(function() {
 
 // get similar molecules from molecules table 
 $(function(){
-  $('#molecule_table td > a').click(function(){
+  $('#molecule_table tbody').on('click', 'td > a', function() {
     var selected_cid = $(this).text();
     var threshold = 0.95;
     // create a url location with filtered id
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
-  });
-});
-
-
-// get similar molecules from modified molecules table 
-$(function(){
-  $("#molecule_table").bind("DOMSubtreeModified", function() {
-    $('#molecule_table td > a').click(function(){
-      var selected_cid = $(this).text();
-      var threshold = 0.95;
-      // create a url location with filtered id
-      window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
-    });
+    window.location.assign(`/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
   });
 });
 
@@ -92,7 +79,7 @@ $(function(){
     var selected_cid = $(this).text();
     var threshold = 0.95;
     // create a url location with filtered id
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
+    window.location.assign(`/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
   });
 });
 
@@ -112,7 +99,7 @@ $(function(){
       selected_threshold = 0.75
     }
     // create a url location with filtered cid and selected threshold
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${current_cid}&similarity_thr=${selected_threshold}`);
+    window.location.assign(`/apdb/home/browse-similarities/panel?molecule_id=${current_cid}&similarity_thr=${selected_threshold}`);
   });    
   // set current similarity threshold 
   const urlParams = new URLSearchParams(window.location.search);
@@ -123,24 +110,12 @@ $(function(){
 
 // get selected targets from bioassays table 
 $(function(){
-  $('#bioassay_table td > a').click(function(){
+  $('#bioassay_table tbody').on('click', 'td > a', function() {
     var selected_uniprotkb = $(this).text();
     // create a url location with filtered id
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-targets?target_uniprotkb=${selected_uniprotkb}`);
- });
-});
-
-
-// get selected targets from modified bioassays table 
-$(function(){
-  $("#bioassay_table").bind("DOMSubtreeModified", function() {
-  $('#bioassay_table td > a').click(function(){
-    var selected_uniprotkb = $(this).text();
-    // create a url location with filtered id
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-targets?target_uniprotkb=${selected_uniprotkb}`);
+    window.location.assign(`/apdb/home/browse-targets?target_uniprotkb=${selected_uniprotkb}`);
   });
- });
-})
+});
 
 
 // get similar molecules from targets panel
@@ -149,6 +124,6 @@ $(function(){
     var selected_cid = $(this).text();
     var threshold = 0.95;
     // create a url location with filtered id
-    window.location.replace(`http://` + window.location.hostname + `/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
+    window.location.assign(`/apdb/home/browse-similarities/panel?molecule_id=${selected_cid}&similarity_thr=${threshold}`);
   });
 });

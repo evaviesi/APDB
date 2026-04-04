@@ -629,7 +629,7 @@ def similarity_panel_browse():
     # create folder  
     os.makedirs(folder_path, exist_ok=True)
     # save image
-    Draw.MolToFile(mol, os.getcwd() + "/pollutants_db_app/static/tmp_img/mol.png")
+    Draw.MolToFile(mol, os.path.join(os.getcwd(), "pollutants_db_app/static/tmp_img", f"mol_{molecule_cid}.png"))
     
     # check if single atom 
     single_atom = False

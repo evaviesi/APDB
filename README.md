@@ -7,8 +7,7 @@ descriptors provided in **APDB**, offers scientists a unique resource for a wide
 
 ### Local Setup
 
-The app is currently available **locally** due to server maintenance and related services.</br> 
-Follow the steps below to run it and access all functionalities:
+The APDB web application is currently available **locally** due to server maintenance and related services. Follow the steps below to run the app and access all its functionalities:
 
 **1. Clone the repository**
 ```bash
